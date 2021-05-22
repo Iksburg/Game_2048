@@ -8,12 +8,13 @@ import tornadofx.*
 class MainStage : View(title = "Game 2048") {
     private val controller: MainLogic by inject()
 
-    private fun randomAndEndGame() {
+    private fun randomAndEndGame(): List<List<Int>> {
         if (controller.currentField != controller.beforeField) {
-            controller.random()
+            controller.randomForField()
         } else if (controller.endGame()) {
             replaceWith<EndStage>()
         }
+        return controller.currentField
     }
 
     override val root = vbox {
@@ -33,6 +34,7 @@ class MainStage : View(title = "Game 2048") {
             controller.moveD()
             randomAndEndGame()
         }
+
         hbox {
             stackpane {
                 rectangle {

@@ -10,8 +10,8 @@ class StartStage : View(title = "Game 2048") {
         label("Click on this button to start the game")
         button("Start") {
             action {
-                controller.random()
-                controller.random()
+                controller.randomForField()
+                controller.randomForField()
                 replaceWith<MainStage>()
             }
         }

@@ -6,8 +6,9 @@ import kotlin.random.Random
 class MainLogic: Controller() {
     val currentField = mutableListOf(mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0))
     val beforeField = mutableListOf(mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0))
+    var totalScore = 0
 
-    fun random (): List<List<Int>> {
+    fun randomForField(): List<List<Int>> {
         val listOfRandom = mutableListOf<Pair<Int, Int>>()
         for (i in 0..15) {
             if (currentField[i / 4][i % 4] == 0) {
@@ -37,6 +38,7 @@ class MainLogic: Controller() {
                                 currentField[i][j] = 0
                             } else if (currentField[i - 1][j] == currentField[i][j]) {
                                 currentField[i - 1][j] += currentField[i][j]
+                                totalScore += currentField[i - 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -47,6 +49,7 @@ class MainLogic: Controller() {
                                     currentField[i][j] = 0
                                 } else if (currentField[i - 2][j] == currentField[i][j]) {
                                     currentField[i - 2][j] += currentField[i][j]
+                                    totalScore += currentField[i - 2][j]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i - 1][j] = currentField[i][j]
@@ -54,6 +57,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i - 1][j] == currentField[i][j]) {
                                 currentField[i - 1][j] += currentField[i][j]
+                                totalScore += currentField[i - 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -65,6 +69,7 @@ class MainLogic: Controller() {
                                         currentField[i][j] = 0
                                     } else if (currentField[i - 3][j] == currentField[i][j]) {
                                         currentField[i - 3][j] += currentField[i][j]
+                                        totalScore += currentField[i - 3][j]
                                         currentField[i][j] = 0
                                     } else {
                                         currentField[i - 2][j] = currentField[i][j]
@@ -72,6 +77,7 @@ class MainLogic: Controller() {
                                     }
                                 } else if (currentField[i - 2][j] == currentField[i][j]) {
                                     currentField[i - 2][j] += currentField[i][j]
+                                    totalScore += currentField[i - 2][j]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i - 1][j] = currentField[i][j]
@@ -79,6 +85,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i - 1][j] == currentField[i][j]) {
                                 currentField[i - 1][j] += currentField[i][j]
+                                totalScore += currentField[i - 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -101,6 +108,7 @@ class MainLogic: Controller() {
                                 currentField[i][j] = 0
                             } else if (currentField[i + 1][j] == currentField[i][j]) {
                                 currentField[i + 1][j] += currentField[i][j]
+                                totalScore += currentField[i + 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -111,6 +119,7 @@ class MainLogic: Controller() {
                                     currentField[i][j] = 0
                                 } else if (currentField[i + 2][j] == currentField[i][j]) {
                                     currentField[i + 2][j] += currentField[i][j]
+                                    totalScore += currentField[i + 2][j]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i + 1][j] = currentField[i][j]
@@ -118,6 +127,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i + 1][j] == currentField[i][j]) {
                                 currentField[i + 1][j] += currentField[i][j]
+                                totalScore += currentField[i + 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -129,6 +139,7 @@ class MainLogic: Controller() {
                                         currentField[i][j] = 0
                                     } else if (currentField[i + 3][j] == currentField[i][j]) {
                                         currentField[i + 3][j] += currentField[i][j]
+                                        totalScore += currentField[i + 3][j]
                                         currentField[i][j] = 0
                                     } else {
                                         currentField[i + 2][j] = currentField[i][j]
@@ -136,6 +147,7 @@ class MainLogic: Controller() {
                                     }
                                 } else if (currentField[i + 2][j] == currentField[i][j]) {
                                     currentField[i + 2][j] += currentField[i][j]
+                                    totalScore += currentField[i + 2][j]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i + 1][j] = currentField[i][j]
@@ -143,6 +155,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i + 1][j] == currentField[i][j]) {
                                 currentField[i + 1][j] += currentField[i][j]
+                                totalScore += currentField[i + 1][j]
                                 currentField[i][j] = 0
                             }
                         }
@@ -165,6 +178,7 @@ class MainLogic: Controller() {
                                 currentField[i][j] = 0
                             } else if (currentField[i][j - 1] == currentField[i][j]) {
                                 currentField[i][j - 1] += currentField[i][j]
+                                totalScore += currentField[i][j - 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -175,6 +189,7 @@ class MainLogic: Controller() {
                                     currentField[i][j] = 0
                                 } else if (currentField[i][j - 2] == currentField[i][j]) {
                                     currentField[i][j - 2] += currentField[i][j]
+                                    totalScore += currentField[i][j - 2]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i][j  - 1] = currentField[i][j]
@@ -182,6 +197,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i][j  - 1] == currentField[i][j]) {
                                 currentField[i][j  - 1] += currentField[i][j]
+                                totalScore += currentField[i][j - 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -193,6 +209,7 @@ class MainLogic: Controller() {
                                         currentField[i][j] = 0
                                     } else if (currentField[i][j - 3] == currentField[i][j]) {
                                         currentField[i][j - 3] += currentField[i][j]
+                                        totalScore += currentField[i][j - 3]
                                         currentField[i][j] = 0
                                     } else {
                                         currentField[i][j  - 2] = currentField[i][j]
@@ -200,6 +217,7 @@ class MainLogic: Controller() {
                                     }
                                 } else if (currentField[i][j  - 2] == currentField[i][j]) {
                                     currentField[i][j  - 2] += currentField[i][j]
+                                    totalScore += currentField[i][j - 2]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i][j - 1] = currentField[i][j]
@@ -207,6 +225,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i][j - 1] == currentField[i][j]) {
                                 currentField[i][j - 1] += currentField[i][j]
+                                totalScore += currentField[i][j - 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -229,6 +248,7 @@ class MainLogic: Controller() {
                                 currentField[i][j] = 0
                             } else if (currentField[i][j + 1] == currentField[i][j]) {
                                 currentField[i][j + 1] += currentField[i][j]
+                                totalScore += currentField[i][j + 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -239,6 +259,7 @@ class MainLogic: Controller() {
                                     currentField[i][j] = 0
                                 } else if (currentField[i][j + 2] == currentField[i][j]) {
                                     currentField[i][j + 2] += currentField[i][j]
+                                    totalScore += currentField[i][j + 2]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i][j + 1] = currentField[i][j]
@@ -246,6 +267,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i][j + 1] == currentField[i][j]) {
                                 currentField[i][j  + 1] += currentField[i][j]
+                                totalScore += currentField[i][j + 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -257,6 +279,7 @@ class MainLogic: Controller() {
                                         currentField[i][j] = 0
                                     } else if (currentField[i][j + 3] == currentField[i][j]) {
                                         currentField[i][j + 3] += currentField[i][j]
+                                        totalScore += currentField[i][j + 3]
                                         currentField[i][j] = 0
                                     } else {
                                         currentField[i][j + 2] = currentField[i][j]
@@ -264,6 +287,7 @@ class MainLogic: Controller() {
                                     }
                                 } else if (currentField[i][j + 2] == currentField[i][j]) {
                                     currentField[i][j + 2] += currentField[i][j]
+                                    totalScore += currentField[i][j + 2]
                                     currentField[i][j] = 0
                                 } else {
                                     currentField[i][j + 1] = currentField[i][j]
@@ -271,6 +295,7 @@ class MainLogic: Controller() {
                                 }
                             } else if (currentField[i][j + 1] == currentField[i][j]) {
                                 currentField[i][j + 1] += currentField[i][j]
+                                totalScore += currentField[i][j + 1]
                                 currentField[i][j] = 0
                             }
                         }
@@ -281,9 +306,13 @@ class MainLogic: Controller() {
         return currentField
     }
 
-    fun endGame (): Boolean {
+    fun endGame(): Boolean {
         for (i in 0..15) {
             if (currentField[i / 4][i % 4] == 0) return false
+        }
+        for (i in 0..15) {
+            currentField[i / 4][i % 4] = 0
+            beforeField[i / 4][i % 4] = 0
         }
         return true
     }

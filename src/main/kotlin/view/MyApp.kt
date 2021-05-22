@@ -5,11 +5,9 @@ import tornadofx.*
 
 class MyApp: App(StartStage::class) {
     override fun start(stage: Stage) {
-        with(stage) {
-            minWidth = 619.0
-            minHeight = 641.0
-            isResizable = false
-            super.start(this)
-        }
+        stage.minWidth = 619.0
+        stage.minHeight = 641.0
+        stage.isResizable = false
+        super.start(stage)
     }
 }
