@@ -23,9 +23,9 @@ class MainLogic: Controller() {
                 listOfRandom += Pair(i / 4, i % 4)
             }
         }
-        val cellForChange = Random.nextInt(0, listOfRandom.size)
-        val twoOrFour = Random.nextInt(1, 10)
-        if (twoOrFour != 10) {
+        val cellForChange = Random.nextInt(listOfRandom.size)
+        val twoOrFour = Random.nextInt(10)
+        if (twoOrFour != 9) {
             currentField[listOfRandom[cellForChange].first][listOfRandom[cellForChange].second] = 2
         } else {
             currentField[listOfRandom[cellForChange].first][listOfRandom[cellForChange].second] = 4

@@ -17,6 +17,14 @@ class MainStage : View(title = "Game 2048") {
         return controller.currentField
     }
 
+    private fun checkEqualityNull (number: Int): String {
+        return if (number == 0) {
+            ""
+        } else {
+            number.toString()
+        }
+    }
+
     override val root = vbox {
         shortcut("w") {
             controller.moveW()
@@ -43,8 +51,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[0][0].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[0][0])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -54,8 +62,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[0][1].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[0][1])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -65,8 +73,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[0][2].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[0][2])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -76,54 +84,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[0][3].toString()) {
-                    font = Font(75.0)
-                }
-            }
-        }
-        hbox {
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[1][0].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[1][1].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[1][2].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[1][3].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[0][3])) {
+                    font = Font(55.0)
                 }
             }
         }
@@ -135,8 +97,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[2][0].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[1][0])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -146,8 +108,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[2][1].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[1][1])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -157,8 +119,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[2][2].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[1][2])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -168,8 +130,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[2][3].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[1][3])) {
+                    font = Font(55.0)
                 }
             }
         }
@@ -181,8 +143,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[3][0].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[2][0])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -192,8 +154,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[3][1].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[2][1])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -203,8 +165,8 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[3][2].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[2][2])) {
+                    font = Font(55.0)
                 }
             }
             stackpane {
@@ -214,8 +176,54 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[3][3].toString()) {
-                    font = Font(75.0)
+                label(checkEqualityNull(controller.currentField[2][3])) {
+                    font = Font(55.0)
+                }
+            }
+        }
+        hbox {
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(checkEqualityNull(controller.currentField[3][0])) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(checkEqualityNull(controller.currentField[3][1])) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(checkEqualityNull(controller.currentField[3][2])) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(checkEqualityNull(controller.currentField[3][3])) {
+                    font = Font(55.0)
                 }
             }
         }
