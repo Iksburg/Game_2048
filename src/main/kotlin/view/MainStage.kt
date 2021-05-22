@@ -8,24 +8,32 @@ import tornadofx.*
 class MainStage : View(title = "Game 2048") {
     private val controller: MainLogic by inject()
 
-    override val root = hbox {
-        shortcut("w") {
+    private fun randomAndEndGame() {
+        if (controller.currentField != controller.beforeField) {
             controller.random()
-            println(controller.currentField)
+        } else if (controller.endGame()) {
+            replaceWith<EndStage>()
+        }
+    }
+
+    override val root = vbox {
+        shortcut("w") {
+            controller.moveW()
+            randomAndEndGame()
         }
         shortcut("s") {
-            controller.random()
-            println(controller.currentField)
+            controller.moveS()
+            randomAndEndGame()
         }
         shortcut("a") {
-            controller.random()
-            println(controller.currentField)
+            controller.moveA()
+            randomAndEndGame()
         }
         shortcut("d") {
-            controller.random()
-            println(controller.currentField)
+            controller.moveD()
+            randomAndEndGame()
         }
-        vbox {
+        hbox {
             stackpane {
                 rectangle {
                     fill = Color.BEIGE
@@ -33,7 +41,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[0].toString()) {
+                label(controller.currentField[0][0].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -44,7 +52,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[1].toString()) {
+                label(controller.currentField[0][1].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -55,7 +63,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[2].toString()) {
+                label(controller.currentField[0][2].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -66,58 +74,12 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[3].toString()) {
-                    font = Font(75.0)
-                }
-            }
-        }
-        vbox {
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[4].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[5].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[6].toString()) {
-                    font = Font(75.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(controller.currentField[7].toString()) {
+                label(controller.currentField[0][3].toString()) {
                     font = Font(75.0)
                 }
             }
         }
-        vbox {
+        hbox {
             stackpane {
                 rectangle {
                     fill = Color.BEIGE
@@ -125,7 +87,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[8].toString()) {
+                label(controller.currentField[1][0].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -136,7 +98,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[9].toString()) {
+                label(controller.currentField[1][1].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -147,7 +109,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[10].toString()) {
+                label(controller.currentField[1][2].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -158,12 +120,12 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[11].toString()) {
+                label(controller.currentField[1][3].toString()) {
                     font = Font(75.0)
                 }
             }
         }
-        vbox {
+        hbox {
             stackpane {
                 rectangle {
                     fill = Color.BEIGE
@@ -171,7 +133,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[12].toString()) {
+                label(controller.currentField[2][0].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -182,7 +144,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[13].toString()) {
+                label(controller.currentField[2][1].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -193,7 +155,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[14].toString()) {
+                label(controller.currentField[2][2].toString()) {
                     font = Font(75.0)
                 }
             }
@@ -204,7 +166,53 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(controller.currentField[15].toString()) {
+                label(controller.currentField[2][3].toString()) {
+                    font = Font(75.0)
+                }
+            }
+        }
+        hbox {
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.currentField[3][0].toString()) {
+                    font = Font(75.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.currentField[3][1].toString()) {
+                    font = Font(75.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.currentField[3][2].toString()) {
+                    font = Font(75.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.currentField[3][3].toString()) {
                     font = Font(75.0)
                 }
             }
