@@ -51,7 +51,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[0][0])) {
+                label(controller.firstCell) {
                     font = Font(55.0)
                 }
             }
@@ -62,7 +62,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[0][1])) {
+                label(controller.secondCell) {
                     font = Font(55.0)
                 }
             }
@@ -73,7 +73,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[0][2])) {
+                label(controller.thirdCell) {
                     font = Font(55.0)
                 }
             }
@@ -84,53 +84,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[0][3])) {
-                    font = Font(55.0)
-                }
-            }
-        }
-        hbox {
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(checkEqualityNull(controller.currentField[1][0])) {
-                    font = Font(55.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(checkEqualityNull(controller.currentField[1][1])) {
-                    font = Font(55.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(checkEqualityNull(controller.currentField[1][2])) {
-                    font = Font(55.0)
-                }
-            }
-            stackpane {
-                rectangle {
-                    fill = Color.BEIGE
-                    width = 150.0
-                    height = 150.0
-                    stroke = Color.DARKGREY
-                }
-                label(checkEqualityNull(controller.currentField[1][3])) {
+                label(controller.fourthCell) {
                     font = Font(55.0)
                 }
             }
@@ -143,7 +97,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[2][0])) {
+                label(controller.fifthCell) {
                     font = Font(55.0)
                 }
             }
@@ -154,7 +108,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[2][1])) {
+                label(controller.sixthCell) {
                     font = Font(55.0)
                 }
             }
@@ -165,7 +119,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[2][2])) {
+                label(controller.seventhCell) {
                     font = Font(55.0)
                 }
             }
@@ -176,7 +130,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[2][3])) {
+                label(controller.eighthCell) {
                     font = Font(55.0)
                 }
             }
@@ -189,7 +143,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[3][0])) {
+                label(controller.ninthCell) {
                     font = Font(55.0)
                 }
             }
@@ -200,7 +154,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[3][1])) {
+                label(controller.tenthCell) {
                     font = Font(55.0)
                 }
             }
@@ -211,7 +165,7 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[3][2])) {
+                label(controller.eleventhCell) {
                     font = Font(55.0)
                 }
             }
@@ -222,7 +176,53 @@ class MainStage : View(title = "Game 2048") {
                     height = 150.0
                     stroke = Color.DARKGREY
                 }
-                label(checkEqualityNull(controller.currentField[3][3])) {
+                label(controller.twelfthCell) {
+                    font = Font(55.0)
+                }
+            }
+        }
+        hbox {
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.thirteenthCell) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.fourteenthCell) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.fifteenthCell) {
+                    font = Font(55.0)
+                }
+            }
+            stackpane {
+                rectangle {
+                    fill = Color.BEIGE
+                    width = 150.0
+                    height = 150.0
+                    stroke = Color.DARKGREY
+                }
+                label(controller.sixteenthCell) {
                     font = Font(55.0)
                 }
             }

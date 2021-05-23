@@ -1,5 +1,6 @@
 package logic
 
+import javafx.beans.property.SimpleStringProperty
 import tornadofx.*
 import kotlin.random.Random
 
@@ -8,13 +9,30 @@ class MainLogic: Controller() {
         mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0))
     val beforeField = mutableListOf(mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0),
         mutableListOf(0, 0, 0, 0), mutableListOf(0, 0, 0, 0))
-    var totalScore = 0
+    var score = SimpleStringProperty("0")
     private val summationCheck = mutableListOf(
         mutableListOf(false, false, false, false),
         mutableListOf(false, false, false, false),
         mutableListOf(false, false, false, false),
         mutableListOf(false, false, false, false)
     )
+
+    var firstCell = SimpleStringProperty()
+    var secondCell = SimpleStringProperty()
+    var thirdCell = SimpleStringProperty()
+    var fourthCell = SimpleStringProperty()
+    var fifthCell = SimpleStringProperty()
+    var sixthCell = SimpleStringProperty()
+    var seventhCell = SimpleStringProperty()
+    var eighthCell = SimpleStringProperty()
+    var ninthCell = SimpleStringProperty()
+    var tenthCell = SimpleStringProperty()
+    var eleventhCell = SimpleStringProperty()
+    var twelfthCell = SimpleStringProperty()
+    var thirteenthCell = SimpleStringProperty()
+    var fourteenthCell = SimpleStringProperty()
+    var fifteenthCell = SimpleStringProperty()
+    var sixteenthCell = SimpleStringProperty()
 
     fun randomForField() {
         val listOfRandom = mutableListOf<Pair<Int, Int>>()
@@ -30,10 +48,11 @@ class MainLogic: Controller() {
         } else {
             currentField[listOfRandom[cellForChange].first][listOfRandom[cellForChange].second] = 4
         }
+        updateField()
     }
 
     private fun score(number: Int) {
-        totalScore += number
+        score.value = (score.value.toInt() + number).toString()
     }
 
     private fun renewalBeforeField() {
@@ -46,6 +65,33 @@ class MainLogic: Controller() {
         for (i in 0..15) {
             summationCheck[i / 4][i % 4] = false
         }
+    }
+
+    private fun equalityToNull(cell: Int):String {
+        return if (cell != 0) {
+            cell.toString()
+        } else {
+            ""
+        }
+    }
+
+    private fun updateField() {
+        firstCell.value = equalityToNull(currentField[0][0])
+        secondCell.value = equalityToNull(currentField[0][1])
+        thirdCell.value = equalityToNull(currentField[0][2])
+        fourthCell.value = equalityToNull(currentField[0][3])
+        fifthCell.value = equalityToNull(currentField[1][0])
+        sixthCell.value = equalityToNull(currentField[1][1])
+        seventhCell.value = equalityToNull(currentField[1][2])
+        eighthCell.value = equalityToNull(currentField[1][3])
+        ninthCell.value = equalityToNull(currentField[2][0])
+        tenthCell.value = equalityToNull(currentField[2][1])
+        eleventhCell.value = equalityToNull(currentField[2][2])
+        twelfthCell.value = equalityToNull(currentField[2][3])
+        thirteenthCell.value = equalityToNull(currentField[3][0])
+        fourteenthCell.value = equalityToNull(currentField[3][1])
+        fifteenthCell.value = equalityToNull(currentField[3][2])
+        sixteenthCell.value = equalityToNull(currentField[3][3])
     }
 
     fun moveW() {

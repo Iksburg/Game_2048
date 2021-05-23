@@ -9,11 +9,20 @@ class EndStage : View(title = "Game 2048") {
     private val controller: MainLogic by inject()
 
     override val root = vbox(spacing = 100.0, alignment = Pos.CENTER) {
-        label("End of the game! Your total score = " + controller.totalScore) {
-            style {
-                fontWeight = FontWeight.BOLD
-                fontSize = 25.px
-                fontFamily = "Comic Sans MS"
+        hbox(alignment = Pos.CENTER) {
+            label("End of the game! Your total score = ") {
+                style {
+                    fontWeight = FontWeight.BOLD
+                    fontSize = 25.px
+                    fontFamily = "Comic Sans MS"
+                }
+            }
+            label(controller.score) {
+                style {
+                    fontWeight = FontWeight.BOLD
+                    fontSize = 25.px
+                    fontFamily = "Comic Sans MS"
+                }
             }
         }
         hbox (spacing = 50.0, alignment = Pos.CENTER) {
@@ -24,6 +33,7 @@ class EndStage : View(title = "Game 2048") {
                 }
                 action {
                     replaceWith<StartStage>()
+                    controller.score.value = "0"
                 }
             }
             button("Quit") {
