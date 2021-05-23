@@ -8,20 +8,11 @@ import tornadofx.*
 class MainStage : View(title = "Game 2048") {
     private val controller: MainLogic by inject()
 
-    private fun randomAndEndGame(): List<List<Int>> {
+    private fun randomAndEndGame() {
         if (controller.currentField != controller.beforeField) {
             controller.randomForField()
         } else if (controller.endGame()) {
             replaceWith<EndStage>()
-        }
-        return controller.currentField
-    }
-
-    private fun checkEqualityNull (number: Int): String {
-        return if (number == 0) {
-            ""
-        } else {
-            number.toString()
         }
     }
 
