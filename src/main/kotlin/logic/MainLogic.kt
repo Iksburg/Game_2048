@@ -16,7 +16,7 @@ class MainLogic: Controller() {
         mutableListOf(false, false, false, false)
     )
 
-    fun randomForField(): List<List<Int>> {
+    fun randomForField() {
         val listOfRandom = mutableListOf<Pair<Int, Int>>()
         for (i in 0..15) {
             if (currentField[i / 4][i % 4] == 0) {
@@ -30,7 +30,6 @@ class MainLogic: Controller() {
         } else {
             currentField[listOfRandom[cellForChange].first][listOfRandom[cellForChange].second] = 4
         }
-        return currentField
     }
 
     private fun score(number: Int) {
@@ -49,7 +48,7 @@ class MainLogic: Controller() {
         }
     }
 
-    fun moveW(): List<List<Int>> {
+    fun moveW() {
         renewalBeforeField()
         for (i in 1..3) {
             for (j in 0..3) {
@@ -120,10 +119,9 @@ class MainLogic: Controller() {
             }
         }
         fillFalse()
-        return currentField
     }
 
-    fun moveS(): List<List<Int>> {
+    fun moveS() {
         renewalBeforeField()
         for (i in 2 downTo 0) {
             for (j in 0..3) {
@@ -194,10 +192,9 @@ class MainLogic: Controller() {
             }
         }
         fillFalse()
-        return currentField
     }
 
-    fun moveA(): List<List<Int>> {
+    fun moveA() {
         renewalBeforeField()
         for (i in 0..3) {
             for(j in 1..3) {
@@ -268,10 +265,9 @@ class MainLogic: Controller() {
             }
         }
         fillFalse()
-        return currentField
     }
 
-    fun moveD(): List<List<Int>> {
+    fun moveD() {
         renewalBeforeField()
         for (i in 0..3) {
             for(j in 2 downTo 0) {
@@ -342,7 +338,6 @@ class MainLogic: Controller() {
             }
         }
         fillFalse()
-        return currentField
     }
 
     fun endGame(): Boolean {
