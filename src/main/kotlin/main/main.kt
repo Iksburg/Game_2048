@@ -1,7 +1,7 @@
 package main
 
 import tornadofx.*
-import view.MyApp
+import app.MyApp
 
 fun main(args: Array<String>) {
     launch<MyApp>(args)

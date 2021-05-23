@@ -1,7 +1,8 @@
-package view
+package app
 
 import javafx.stage.Stage
 import tornadofx.*
+import view.StartStage
 
 class MyApp: App(StartStage::class) {
     override fun start(stage: Stage) {

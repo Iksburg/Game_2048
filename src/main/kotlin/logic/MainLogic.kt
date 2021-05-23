@@ -154,7 +154,7 @@ class MainLogic: Controller() {
                                     currentField[i + 1][j] = currentField[i][j]
                                     currentField[i][j] = 0
                                 }
-                            } else if (currentField[i + 1][j] == currentField[i][j] && !summationCheck[i + 1][j]) {
+                            } else if (currentField[i + 1][j] == currentField[i][j]) {
                                 currentField[i + 1][j] += currentField[i][j]
                                 score(currentField[i + 1][j])
                                 currentField[i][j] = 0
